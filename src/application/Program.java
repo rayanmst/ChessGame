@@ -11,20 +11,20 @@ import chess.ChessPosition;
 public class Program {
 
 	public static void main(String[] args) {
-
+		
 		Scanner sc = new Scanner(System.in);
 		ChessMatch cm = new ChessMatch();
 
-		while (true) {
+		while (true) { 
 			try {
 				UI.clearScreen();
 				UI.printBoard(cm.getPieces());
 				System.out.println();
-				System.out.print("Fonte: ");
+				System.out.print("Souce: ");
 				ChessPosition source = UI.readChessPosition(sc);
 	
 				System.out.println();
-				System.out.print("Alvo: ");
+				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);
 	
 				ChessPiece capturedPiece = cm.performChessMove(source, target);

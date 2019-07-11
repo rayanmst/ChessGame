@@ -8,7 +8,7 @@ public class Board {
 	
 	public Board(int rows, int columns) {
 		if(rows < 1 || columns < 1) {
-			throw new BoardException("Erro na criação o tabuleiro: Deve haver pelo menos 1 linha e uma coluna.");
+			throw new BoardException("Error in boaard creation: Must hava at least 1 row and 1 column.");
 		}
 		this.rows = rows;
 		this.columns = columns;
@@ -25,7 +25,7 @@ public class Board {
 	
 	public Piece piece(int row, int column) {
 		if(!positionExists(row, column)) {
-			throw new BoardException("Posição inexistente!");
+			throw new BoardException("This position doesn't belong to the board!");
 		}
 		return pieces[row][column];
 	}
@@ -39,7 +39,7 @@ public class Board {
 	
 	public void placePiece(Piece piece, Position position) {
 		if(thereIsAPiece(position)) {
-			throw new BoardException("Já existe uma peça nesta posição " + position);
+			throw new BoardException("Already exists a pisce in this position " + position);
 		}
 		pieces[position.getRow()][position.getColumn()] = piece;
 		piece.position = position;
@@ -47,7 +47,7 @@ public class Board {
 	
 	public Piece removePiece(Position position) {
 		if(!positionExists(position)) {
-			throw new BoardException("Posição inexistente!");
+			throw new BoardException("This position doesn't belong to the board!");
 		}
 		if(piece(position) == null) {
 			return null;
@@ -69,7 +69,7 @@ public class Board {
 	
 	public boolean thereIsAPiece(Position position) {
 		if(!positionExists(position)) {
-			throw new BoardException("Posição inexistente!");
+			throw new BoardException("This position doesn't belong to the board!");
 		}
 		return piece(position) != null;
 	}
